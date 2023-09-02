@@ -1,0 +1,41 @@
+[search_placeholder]
+other = "Keresés..."
+
+[uncategorized]
+other = "Kategória nélküli"
+
+[source]
+other = "Forrás"
+
+[vegan]
+other = "Vegán"
+
+[meat]
+other = "Hús"
+
+[spicy]
+other = "Csípős"
+
+[sweet]
+other = "Édes"
+
+[salty]
+other = "Sós"
+
+[sour]
+other = "Savanyú"
+
+[bitter]
+other = "Keserű"
+
+[umami]
+other = "Umami"
+
+[updated_on]
+other = "Legutóbb frissítve"
+
+[edit]
+other = "Szerkesztés"
+
+[footer_text]
+other = "Jó étvágyat!"

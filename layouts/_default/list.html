@@ -1,0 +1,23 @@
+{{ define "header" }}
+    <div class="name">
+        <nav>
+            <a href="/"><img class="logo" src="/images/logo.svg"></a>
+            <i>⟩</i>
+        </nav>
+        <h1><span>{{ .Title }}</span></h1>
+        <!--<p>$recipes/length$ recipes.</p>-->
+    </div>
+{{ end }}
+
+{{ define "main" }}
+    {{ $categories := slice }}
+    {{ range $category, $terms := .Site.Taxonomies.categories}}
+        {{ $categories = $categories | append $category }}
+    {{ end }}
+
+    {{ if in $categories (anchorize .Title)  }}
+        {{ partial "list_category.html" . }}
+    {{ else }}
+        {{ partial "list_uncategorized.html" . }}
+    {{ end }}
+{{ end }}

@@ -1,0 +1,7 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- range .Site.RegularPages -}}
+    {{ $url := dict "htmlfile" .Permalink }}
+    {{ $metadata := .Params | merge $url }}
+    {{ $.Scratch.Add "index" $metadata }}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

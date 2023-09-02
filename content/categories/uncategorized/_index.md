@@ -1,0 +1,1 @@
+<!-- This file forces Hugo to render the list page for /categories/uncategorized -->

@@ -1,0 +1,32 @@
+name = "Nyum"
+license = "MIT"
+licenselink = "https://github.com/arvaid/hugo-nyum/blob/master/LICENSE"
+description = "Hugo port of nyum"
+homepage = "https://github.com/arvaid/hugo-nyum/"
+tags = ["recipes", "cookbook", "cooking"]
+features = []
+min_version = "0.72.0"
+
+[author]
+  name = "Dániel Árvai"
+  homepage = "arvaid.net"
+
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = false
+      xhtml = false

@@ -1,0 +1,11 @@
+<footer>
+    <p>{{ i18n "footer_text" }}</p>
+    <p class="updatededit">
+        {{ i18n "updated_on"}} {{ .Lastmod.Format "2006-06-02" }}
+        
+        {{ with .Site.Params.github_url }}
+            ·
+            <a href="{{ . }}/edit/main/_recipes/{{ $.Page.File }}">{{ i18n "edit"}}</a>
+        {{ end }}
+    </p>
+</footer>

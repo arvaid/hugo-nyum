@@ -1,0 +1,89 @@
+{{ define "header" }}
+    <div class="name">
+        <nav>
+            <a href="/"><img class="logo" src="/images/logo.svg"></a>
+            <i>⟩</i>
+            {{ with .Params.categories }}
+                {{ with index . 0 }}
+                    <a href="/categories/{{ urlize . }}">{{ . }}</a> <i>⟩</i>
+                {{ end }}
+            {{ end }}
+        </nav>
+        <h1><span>{{ .Params.title }}{{ if .Params.favorite }}<sup>★</sup>{{ end }}</span> {{ with .Params.original_title }}<em>{{ . }}</em>{{ end }}</h1>
+    </div>
+    
+    <ul>
+        {{ with .Params.size }}
+            <li><img src="/images/tabler-icons/tabler-icon-tools-kitchen-2.svg"> {{ . }}</li>
+        {{ end }}
+        {{ with .Params.time }}
+            <li><img src="/images/tabler-icons/tabler-icon-clock.svg"> {{ . }}</li>
+        {{ end }}
+        {{ with .Params.author}}
+            <li>
+                {{ with $.Params.source }}
+                    <a href="{{ . }}"><img src="/images/tabler-icons/tabler-icon-link.svg"> {{ $.Params.author }}</a>
+                {{ else }}
+                    <img src="/images/tabler-icons/tabler-icon-user.svg"> {{ . }}
+                {{ end }}
+            </li>
+        {{ else }}
+            {{ with .Params.source}}
+                <li><a href="{{ . }}"><img src="/images/tabler-icons/tabler-icon-link.svg"> {{ i18n "source" }}</a></li>
+            {{ end }}
+        {{ end }}
+        {{ if and (not .Params.veggie) (not .Params.vegan) }}
+            <li><img src="/images/tabler-icons/tabler-icon-meat.svg"> {{ i18n "meat" }}</li>
+        {{ end }}
+        {{ with .Params.vegan }}
+            <li><img src="/images/tabler-icons/tabler-icon-leaf.svg"> {{ i18n "vegan" }}</li>
+        {{ end }}
+        {{ with .Params.spicy }}
+            <li><img src="/images/tabler-icons/tabler-icon-pepper.svg"> {{ i18n "spicy" }}</li>
+        {{ end }}
+        {{ with .Params.sweet }}
+            <li><img src="/images/tabler-icons/tabler-icon-candy.svg"> {{ i18n "sweet" }}</li>
+        {{ end }}
+        {{ with .Params.salty }}
+            <li><img src="/images/tabler-icons/tabler-icon-salt.svg"> {{ i18n "salty" }}</li>
+        {{ end }}
+        {{ with .Params.sour }}
+            <li><img src="/images/tabler-icons/tabler-icon-lemon.svg"> {{ i18n "sour" }}</li>
+        {{ end }}
+        {{ with .Params.bitter }}
+            <li><img src="/images/tabler-icons/tabler-icon-coffee.svg"> {{ i18n "bitter" }}</li>
+        {{ end }}
+        {{ with .Params.umami }}
+            <li><img src="/images/tabler-icons/tabler-icon-mushroom.svg"> {{ i18n "umami" }}</li>
+        {{ end }}
+    </ul>
+    {{ with .Params.nutrition }}
+        <p class="nutrition">
+            <img src="/images/tabler-icons/tabler-icon-clipboard-list.svg">
+            {{ $sep := $.Site.Params.sep | default " · " }}
+            {{ delimit . $sep}}
+        </p>
+    {{ end }}
+    {{ with .Params.description }}
+        <p>{{ . }}</p>
+    {{ end }}
+{{ end }}
+
+{{ define "main" }}
+    {{ with .Params.image }}
+        <div class="servingsuggestion">
+            <a href="/{{ .}}">
+            <img src="/{{ . }}">
+            {{ with $.Page.Params.image_attribution }}
+                <div class="attribution">
+                    {{ . }}
+                </div>
+            {{ end }}
+            </a>
+        </div>
+    {{ end }}
+    <section>
+        <hr>
+        {{ .Content }}
+    </section>
+{{ end }}

@@ -1,0 +1,41 @@
+[search_placeholder]
+other = "Search..."
+
+[uncategorized]
+other = "Uncategorized"
+
+[source]
+other = "Source"
+
+[vegan]
+other = "Vegan"
+
+[meat]
+other = "Meat"
+
+[spicy]
+other = "Spicy"
+
+[sweet]
+other = "Sweet"
+
+[salty]
+other = "Salty"
+
+[sour]
+other = "Sour"
+
+[bitter]
+other = "Bitter"
+
+[umami]
+other = "Umami"
+
+[updated_on]
+other = "Updated on"
+
+[edit]
+other = "Edit"
+
+[footer_text]
+other = "Enjoy!"
