@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ .Language }}">
+<head>
+    {{ partial "head.html" }}
+    {{ partial "title.html" . }}
+</head>
+<body>
+    <main class="{{ if .IsPage }}recipe{{ else }}index{{ end }}">
+        <header>
+            {{ block "header" . }}
+                {{partial "logo.html" . }}
+
+            {{ end }}
+        </header>
+       
+        {{ block "main" . }}
+            Page content here...
+        {{ end }}
+        
+        {{ partial "footer.html" . }}
+    </main>
+</body>
+</html>

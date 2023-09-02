@@ -1,0 +1,12 @@
+<section>
+    {{ if eq .Kind "home"}}
+        {{ with site.GetPage .Title }}
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        {{ end }}
+    {{ end }}
+    
+    {{ $category := anchorize .Title}}
+    {{ range .Site.Taxonomies.categories.Get $category }}
+        {{ partial "recipe_list_item" .}}
+    {{ end }}
+</section>

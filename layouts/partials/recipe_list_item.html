@@ -1,0 +1,13 @@
+{{ if $.Site.Params.show_images_on_index }}
+    <div class="entry">
+        {{ with .Params.image }} 
+            <div class="servingsuggestion" style="background-image: url(/{{ . }})"></div>
+        {{ else }}
+            <div class="servingsuggestion"></div>
+        {{ end }}
+        
+        {{ partial "recipe_list_item_inner.html" . }}
+    </div>
+{{ else }}
+    {{ partial "recipe_list_item_inner.html" . }}
+{{ end }}
