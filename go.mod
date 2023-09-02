@@ -1,3 +1,3 @@
-module github.com/arvaid/hugo-nyumarvaid/hugo-nyum
+module github.com/arvaid/hugo-nyum
 
 go 1.20
