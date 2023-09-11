@@ -72,7 +72,11 @@
 {{ define "main" }}
     {{ with .Params.image }}
         <div class="servingsuggestion">
-            <a href="/{{ .}}">
+            {{ if (or (hasPrefix . "http://") (hasPrefix . "https://")) }}
+                <a href="{{ . }}">
+            {{ else }}
+                <a href="/{{ . }}">
+            {{ end }}
             <img src="/{{ . }}">
             {{ with $.Page.Params.image_attribution }}
                 <div class="attribution">
