@@ -1,36 +1,36 @@
 <h3>
     <i class="icons">
         {{ if .Params.favorite }}
-            <img src="/images/tabler-icons/tabler-icon-star.svg">
+        <img src="{{ .Site.BaseURL }}/images/tabler-icons/tabler-icon-star.svg">
         {{ end }}
         {{ if and (not .Params.veggie) (not .Params.vegan) }}
-            <img src="/images/tabler-icons/tabler-icon-meat.svg" alt="{{ i18n "meat" }}">
+        <img src="{{ .Site.BaseURL }}/images/tabler-icons/tabler-icon-meat.svg" alt="{{ i18n " meat" }}">
         {{ end }}
         {{ if .Params.vegan }}
-            <img src="/images/tabler-icons/tabler-icon-leaf.svg" alt="{{ i18n "vegan" }}">
+        <img src="{{ .Site.BaseURL }}/images/tabler-icons/tabler-icon-leaf.svg" alt="{{ i18n " vegan" }}">
         {{ end }}
         {{ if .Params.spicy }}
-            <img src="/images/tabler-icons/tabler-icon-pepper.svg" alt="{{ i18n "spicy" }}">
+        <img src="{{ .Site.BaseURL }}/images/tabler-icons/tabler-icon-pepper.svg" alt="{{ i18n " spicy" }}">
         {{ end }}
         {{ if .Params.sweet }}
-            <img src="/images/tabler-icons/tabler-icon-candy.svg" alt="{{ i18n "candy" }}">
+        <img src="{{ .Site.BaseURL }}/images/tabler-icons/tabler-icon-candy.svg" alt="{{ i18n " candy" }}">
         {{ end }}
         {{ if .Params.salty }}
-            <img src="/images/tabler-icons/tabler-icon-salt.svg" alt="{{ i18n "salty" }}">
+        <img src="{{ .Site.BaseURL }}/images/tabler-icons/tabler-icon-salt.svg" alt="{{ i18n " salty" }}">
         {{ end }}
         {{ if .Params.sour }}
-            <img src="/images/tabler-icons/tabler-icon-lemon.svg" alt="{{ i18n "sour" }}">
+        <img src="{{ .Site.BaseURL }}/images/tabler-icons/tabler-icon-lemon.svg" alt="{{ i18n " sour" }}">
         {{ end }}
         {{ if .Params.bitter }}
-            <img src="/images/tabler-icons/tabler-icon-coffee.svg" alt="{{ i18n "bitter" }}">
+        <img src="{{ .Site.BaseURL }}/images/tabler-icons/tabler-icon-coffee.svg" alt="{{ i18n " bitter" }}">
         {{ end }}
         {{ if .Params.umami }}
-            <img src="/images/tabler-icons/tabler-icon-mushroom.svg" alt="{{ i18n "umami" }}">
+        <img src="{{ .Site.BaseURL }}/images/tabler-icons/tabler-icon-mushroom.svg" alt="{{ i18n " umami" }}">
         {{ end }}
     </i>
     <a href="{{ .RelPermalink }}"><span>{{ .Params.title }}</span></a>
     <em>{{ .Params.original_title }}</em>
 </h3>
 {{ with .Params.description }}
-    <p>{{ . }}</p>
+<p>{{ . }}</p>
 {{ end }}

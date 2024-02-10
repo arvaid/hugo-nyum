@@ -7,7 +7,7 @@ let searchResultsCount = 0;
 let searchSelection = -1;
 
 // asynchronously load search "index" (the search box will remain disabled until then)
-fetch("/index.json")
+fetch(`${window.location.href}index.json`)
     .then(response => response.json())
     .then(data => {
         searchIndex = data;
@@ -53,14 +53,14 @@ function search(query) {
         // boost favorites a little
         if (score > 0 && e["favorite"]) score += 2;
 
-        results.push({score: score, e: e});
+        results.push({ score: score, e: e });
     });
 
     results = results
-      .filter(r => r.score > 0)           // filter out non-results
-      .sort((a, b) => b.score - a.score)  // should be "a.score - b.score", but then we'd need to reverse afterwards
-      .slice(0, 10)                       // limit to the best 10 results
-      .map(e => e.e);                     // throw away score
+        .filter(r => r.score > 0)           // filter out non-results
+        .sort((a, b) => b.score - a.score)  // should be "a.score - b.score", but then we'd need to reverse afterwards
+        .slice(0, 10)                       // limit to the best 10 results
+        .map(e => e.e);                     // throw away score
 
     return results;
 }
@@ -78,19 +78,20 @@ function showResults(results) {
     searchSelection = -1;
 
     let i = 0;
+    const href = window.location.href;
     const code = results.map(e => {
         return `<a href="${e.htmlfile}" class="searchresult" id="${i++}">`
             + `<h3>`
             + `<i class="icons">`
-            + (e.favorite ? `<img src="/images/tabler-icons/tabler-icon-star.svg"> ` : ``)
-            + ((e.veggie || e.vegan) ? `` : `<img src="/images/tabler-icons/tabler-icon-meat.svg"> `)
-            + (e.vegan ? `<img src="/images/tabler-icons/tabler-icon-leaf.svg"> ` : ``)
-            + (e.spicy ? `<img src="/images/tabler-icons/tabler-icon-pepper.svg"> ` : ``)
-            + (e.sweet ? `<img src="/images/tabler-icons/tabler-icon-candy.svg"> ` : ``)
-            + (e.salty ? `<img src="/images/tabler-icons/tabler-icon-salt.svg"> ` : ``)
-            + (e.sour ? `<img src="/images/tabler-icons/tabler-icon-lemon.svg"> ` : ``)
-            + (e.bitter ? `<img src="/images/tabler-icons/tabler-icon-coffee.svg"> ` : ``)
-            + (e.umami ? `<img src="/images/tabler-icons/tabler-icon-mushroom.svg"> ` : ``)
+            + (e.favorite ? `<img src="${href}images/tabler-icons/tabler-icon-star.svg"> ` : ``)
+            + ((e.veggie || e.vegan) ? `` : `<img src="${href}images/tabler-icons/tabler-icon-meat.svg"> `)
+            + (e.vegan ? `<img src="${href}images/tabler-icons/tabler-icon-leaf.svg"> ` : ``)
+            + (e.spicy ? `<img src="${href}images/tabler-icons/tabler-icon-pepper.svg"> ` : ``)
+            + (e.sweet ? `<img src="${href}images/tabler-icons/tabler-icon-candy.svg"> ` : ``)
+            + (e.salty ? `<img src="${href}images/tabler-icons/tabler-icon-salt.svg"> ` : ``)
+            + (e.sour ? `<img src="${href}images/tabler-icons/tabler-icon-lemon.svg"> ` : ``)
+            + (e.bitter ? `<img src="${href}images/tabler-icons/tabler-icon-coffee.svg"> ` : ``)
+            + (e.umami ? `<img src="${href}images/tabler-icons/tabler-icon-mushroom.svg"> ` : ``)
             + `</i>`
             + `<span>${e.title}</span> `
             + (e.original_title ? `<em>${e.original_title}</em>` : ``)

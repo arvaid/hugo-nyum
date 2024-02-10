@@ -9,7 +9,11 @@
 {{ with $uncategorized}}
     <section>
         {{ if eq $.Kind "home" }}
-            <h2><a href="/categories/uncategorized">{{ i18n "uncategorized" }}</a></h2>
+            <h2>
+                <a href="{{ $.Site.BaseURL }}/categories/uncategorized">
+                    {{ i18n "uncategorized" }}
+                </a>
+            </h2>
         {{ end }}
         {{ range $uncategorized}}
             {{ partial "recipe_list_item" .}}

@@ -6,7 +6,9 @@
         {{ if eq .Kind "page" }}
             {{ with .Site.Params.github_url }}
                 ·
-                <a href="{{ . }}/edit/main/content/{{ $.Page.File }}">{{ i18n "edit"}}</a>
+                <a href="{{ . }}/edit/main/content/{{ $.Page.File }}">
+                    {{ i18n "edit"}}
+                </a>
             {{ end }}
         {{ end }}
     </p>
