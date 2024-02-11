@@ -5,7 +5,12 @@
             <i>⟩</i>
         </nav>
         <h1><span>{{ .Title }}</span></h1>
-        <p>{{ $.Pages | len }} recipes.</p>
+        {{ $count := $.Pages | len }}
+        {{ if eq $count 1 }}
+            <p>1 recipe.</p>
+        {{ else }}
+            <p>{{ $count }} recipes.</p>
+        {{ end }}
     </div>
 {{ end }}
 
