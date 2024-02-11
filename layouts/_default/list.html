@@ -5,7 +5,7 @@
             <i>⟩</i>
         </nav>
         <h1><span>{{ .Title }}</span></h1>
-        <!--<p>$recipes/length$ recipes.</p>-->
+        <p>{{ $.Pages | len }} recipes.</p>
     </div>
 {{ end }}
 
