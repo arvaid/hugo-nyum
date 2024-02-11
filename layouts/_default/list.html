@@ -8,6 +8,8 @@
         {{ $count := $.Pages | len }}
         {{ if eq $count 1 }}
             <p>1 recipe.</p>
+        {{ else if eq $count 0 }}
+            <p>0 recipes.</p>
         {{ else }}
             <p>{{ $count }} recipes.</p>
         {{ end }}
