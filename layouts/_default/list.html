@@ -4,7 +4,11 @@
             <a href="/"><img class="logo" src="{{ .Site.BaseURL }}/images/logo.svg"></a>
             <i>⟩</i>
         </nav>
-        <h1><span>{{ .Title }}</span></h1>
+        {{ if .Title }}
+            <h1><span>{{ .Title }}</span></h1>
+        {{ else }}
+            <h1><span>{{ i18n "uncategorized" }}</span></h1>
+        {{ end }}
         {{ $count := $.Pages | len }}
         {{ if eq $count 1 }}
             <p>1 recipe.</p>
